@@ -1,0 +1,41 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  #date-quote-section {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #current-date {
+    font-size: 24px;
+    color: #4e085f;
+  }
+  
+  #daily-quote {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #history-section {
+    margin-top: 20px;
+  }
+  
+  #history-tasks {
+    list-style: none;
+  }
+  
+  .row {
+    margin: 10px 0;
+  }
+  

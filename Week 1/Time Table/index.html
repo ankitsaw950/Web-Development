@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EXAM TIME TABLE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>EXAM TIME TABLE</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>DATE</th>
+            <th>DAY</th>
+            <th>TIME</th>
+            <th>SUBJECT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jun 18,2024</td>
+            <td>Tuesday</td>
+            <td>12:30pm to 3:30pm</td>
+            <td class="subject" data-subject="DSA">DSA</td>
+          </tr>
+          <tr>
+            <td>Jun 20,2024</td>
+            <td>Thursday</td>
+            <td>12:30pm to 3:30pm</td>
+            <td class="subject" data-subject="Operating System">Operating System</td>
+          </tr>
+          <tr>
+            <td>Jun 22,2024</td>
+            <td>Saturday</td>
+            <td>12:30pm to 3:30pm</td>
+            <td class="subject" data-subject="Maths">Maths</td>
+          </tr>
+          <tr>
+            <td>Jun 25,2024</td>
+            <td>Tuesday</td>
+            <td>12:30pm to 3:30pm</td>
+            <td class="subject" data-subject="OOPS">OOPS</td>
+          </tr>
+          <tr>
+            <td>Jun 27,2024</td>
+            <td>Thursday</td>
+            <td>12:30pm to 3:30pm</td>
+            <td class="subject" data-subject="EVS">EVS</td>
+          </tr>
+          <tr>
+            <td>Jul 1,2024</td>
+            <td>Monday</td>
+            <td>08:00am to 4:45pm</td>
+            <td class="subject" data-subject="DSA Lab">DSA Lab</td>
+          </tr>
+          <tr>
+            <td>Jul 2,2024</td>
+            <td>Tuesday</td>
+            <td>8:00am to 4:45pm</td>
+            <td class="subject" data-subject="OOPS Lab">OOPS Lab</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-body"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

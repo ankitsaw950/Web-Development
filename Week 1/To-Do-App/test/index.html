@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern To-Do App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .quote-section {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .task-section {
+            flex: 3;
+        }
+
+        .history-section {
+            flex: 2;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .input-section {
+            display: flex;
+            margin-bottom: 20px;
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        #input-box {
+            flex-grow: 1;
+            padding: 15px 20px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #addBtn {
+            padding: 15px 25px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+
+        #list-container {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+            color: #333;
+        }
+
+        ul li.checked {
+            text-decoration: line-through;
+            color: #666;
+        }
+
+        ul li.checked::before {
+            content: '\2713';
+            display: inline-block;
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        ul li span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            background: rgba(255, 0, 0, 0.2);
+        }
+
+        ul li span:hover {
+            background: rgba(255, 0, 0, 0.4);
+        }
+
+        .history-section h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        #calendar {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .calendar-day {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .calendar-day:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modern To-Do List</h1>
+        <div class="quote-section" id="daily-quote"></div>
+        <div class="main-content">
+            <div class="task-section">
+                <div class="input-section">
+                    <input type="text" id="input-box" placeholder="Add your task">
+                    <button id="addBtn">Add</button>
+                </div>
+                <div id="list-container">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="history-section">
+                <h3>Task History</h3>
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const inputBox = document.getElementById("input-box");
+        const listContainer = document.querySelector("#list-container ul");
+        const addBtn = document.getElementById("addBtn");
+        const dailyQuoteElement = document.getElementById("daily-quote");
+        const calendarElement = document.getElementById("calendar");
+
+        const quotes = [
+            "The secret of getting ahead is getting started.",
+            "Don't watch the clock; do what it does. Keep going.",
+            "Believe you can and you're halfway there.",
+            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+            "The only way to do great work is to love what you do."
+        ];
+
+        function updateQuote() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            dailyQuoteElement.textContent = `"${randomQuote}"`;
+        }
+
+        function addTask() {
+            if (inputBox.value === "") {
+                alert("You must write something!");
+            } else {
+                let li = document.createElement("li");
+                li.innerHTML = inputBox.value;
+                listContainer.appendChild(li);
+                let span = document.createElement("span");
+                span.innerHTML = "\u00d7";
+                li.appendChild(span);
+                updateCalendar();
+            }
+            inputBox.value = "";
+            saveData();
+        }
+
+        listContainer.addEventListener("click", function(e) {
+            if (e.target.tagName === "LI") {
+                e.target.classList.toggle("checked");
+                saveData();
+                updateCalendar();
+            } else if (e.target.tagName === "SPAN") {
+                e.target.parentElement.remove();
+                saveData();
+                updateCalendar();
+            }
+        }, false);
+
+        addBtn.addEventListener("click", addTask);
+        inputBox.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        });
+
+        function saveData() {
+            localStorage.setItem("data", listContainer.innerHTML);
+        }
+
+        function showTask() {
+            listContainer.innerHTML = localStorage.getItem("data") || "";
+        }
+
+        function updateCalendar() {
+            const tasks = listContainer.querySelectorAll("li");
+            const today = new Date();
+            let calendarHTML = "";
+
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(today.getDate() - i);
+                const dateString = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+                const completedTasks = i === 0 ? tasks.length - document.querySelectorAll("li:not(.checked)").length : 0;
+                const totalTasks = i === 0 ? tasks.length : 0;
+
+                calendarHTML += `
+                    <div class="calendar-day">
+                        <span>${dateString}</span>
+                        <span>${completedTasks}/${totalTasks}</span>
+                    </div>
+                `;
+            }
+
+            calendarElement.innerHTML = calendarHTML;
+        }
+
+        // Initialize
+        updateQuote();
+        showTask();
+        updateCalendar();
+
+        // Update quote daily
+        if (!localStorage.getItem('lastQuoteUpdate') || new Date().toDateString() !== new Date(localStorage.getItem('lastQuoteUpdate')).toDateString()) {
+            updateQuote();
+            localStorage.setItem('lastQuoteUpdate', new Date().toISOString());
+        }
+    </script>
+</body>
+</html>

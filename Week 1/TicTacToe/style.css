@@ -1,0 +1,135 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Basic body styling */
+  body {
+    background-color: #87CEEB; /* Set background color */
+    text-align: center; /* Center-align text */
+    font-family: 'Arial', sans-serif; /* Set font */
+  }
+  
+  /* Style for the main heading */
+  h1 {
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: #333;
+  }
+  
+  /* Container for the game */
+  .container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Game board styling */
+  .game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin; /* Gap between the buttons */
+  }
+  
+  /* Game box (button) styling */
+  .box {
+    height: 18vmin;
+    width: 18vmin;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    font-size: 8vmin;
+    color: white;
+    background-color: #FFA07A;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Animation on hover */
+  }
+  
+  /* Hover effect for boxes */
+  .box:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Styling for the reset and new game buttons */
+  #reset-button, #newbutton {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #333;
+    color: white;
+    border-radius: 1rem;
+    border: none;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  #reset-button:hover, #newbutton:hover {
+    background-color: #555;
+  }
+  
+  /* Message styling */
+  #msg {
+    color: #FF4500;
+    font-size: 5vmin;
+    margin-bottom: 2rem;
+  }
+  
+  /* Message container styling */
+  .msg-container {
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white;
+  }
+  
+  /* Class to hide elements */
+  .hide {
+    display: none;
+  }
+  
+  /* Form styling */
+  #name-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  /* Input field styling */
+  #name-form input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  /* Submit button styling */
+  #name-form button {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    background-color: #333;
+    color: white;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for submit button */
+  #name-form button:hover {
+    background-color: #555;
+  }
+  

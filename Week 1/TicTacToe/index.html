@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIC-TAC-TOE Game</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Message container for displaying the winner -->
+    <div class="msg-container hide">
+        <p id="msg">Winner</p>
+        <button id="newbutton">New game</button>
+    </div>
+    <main>
+        <!-- Game title -->
+        <h1>TIC TAC TOE</h1>
+        <!-- Form for entering player names -->
+        <form id="name-form">
+            <input type="text" id="playerO" placeholder="Enter Player O's name" required>
+            <input type="text" id="playerX" placeholder="Enter Player X's name" required>
+            <button type="submit">Start Game</button>
+        </form>
+        <!-- Container for the game board -->
+        <div class="container hide">
+            <div class="game">
+                <!-- Game board buttons -->
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+        </div>
+        <!-- Reset button -->
+        <button id="reset-button" class="hide">Reset Game</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
