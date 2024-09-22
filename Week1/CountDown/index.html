@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Countdown</title>
+    <title>Timer & Stopwatch</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="Countdown-container">
-      <div class="countdown-timer" id="countdown"></div>
-      <div class="countdown-label">Until 2025</div>
+</head>
+<body>
+    <div class="countdown-container">
+        <div class="countdown-label">Set Timer (in minutes):</div>
+        <input type="number" id="timerInput" min="1" placeholder="Enter minutes" />
+        <div class="countdown-timer" id="timer">0m 0s</div>
+        <div class="timer-controls">
+            <button onclick="startTimer()">Start Timer</button>
+            <button onclick="stopTimer()">Stop Timer</button>
+            <button onclick="resetTimer()">Reset Timer</button>
+        </div>
+
+        <div class="gap"></div>
+
+        <div class="countdown-label">Stopwatch</div>
+        <div class="countdown-timer" id="stopwatch">0m 0s</div>
+        <div class="timer-controls">
+            <button onclick="startStopwatch()">Start Stopwatch</button>
+            <button onclick="stopStopwatch()">Stop Stopwatch</button>
+            <button onclick="resetStopwatch()">Reset Stopwatch</button>
+        </div>
     </div>
-  </body>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>

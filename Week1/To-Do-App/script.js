@@ -3,46 +3,46 @@ const listContainer = document.getElementById("list-container");
 const addBtn = document.getElementById("addBtn");
 
 function addTask() {
-  if (inputBox.value === "") {
-    alert("YOu must write something!");
+  // Trim the input value to avoid empty spaces
+  const taskValue = inputBox.value.trim();
+  
+  if (taskValue === "") {
+    alert("You must write something!");
   } else {
     let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
+    li.innerHTML = taskValue;
     listContainer.appendChild(li);
     let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
+    span.innerHTML = "\u00d7"; // Create a delete button (×)
     li.appendChild(span);
   }
-  inputBox.value = "";
-  saveData();
+  inputBox.value = ""; // Clear the input box
+  saveData(); // Save the task to local storage
 }
 
-listContainer.addEventListener(
-  "click",
-  function (e) {
-    if (e.target.tagName === "LI") {
-      e.target.classList.toggle("checked");
-      saveData();
-    } else if (e.target.tagName === "SPAN") {
-      e.target.parentElement.remove();
-      saveData();
-    }
-  },
-  false
-);
+listContainer.addEventListener("click", function (e) {
+  if (e.target.tagName === "LI") {
+    e.target.classList.toggle("checked");
+    saveData();
+  } else if (e.target.tagName === "SPAN") {
+    e.target.parentElement.remove();
+    saveData();
+  }
+}, false);
 
-addBtn.addEventListener("click",addTask);
+addBtn.addEventListener("click", addTask);
 inputBox.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     addTask();
   }
 });
+
 function saveData() {
   localStorage.setItem("data", listContainer.innerHTML);
 }
 
 function display() {
-  listContainer.innerHTML = localStorage.getItem("data");
+  listContainer.innerHTML = localStorage.getItem("data") || ""; // Set default to empty string
 }
 display();
 

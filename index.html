@@ -4,18 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ankit's Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 1.5rem 1.5rem 0 0;
+        }
+
+        .project-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .project-info h2 {
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+        .project-info p {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .view-button {
+            background-color: #4A90E2;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem;
+            text-align: center;
+            border-radius: 0 0 1.5rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .view-button:hover {
+            background-color: #357ABD;
+        }
+    </style>
 </head>
-<body>
-    <h1>My Web Projects</h1>
-    <ul>
-        <li><a href="./Week1/AmazonClone/index.html">Amazon Clone</a></li>
-        <li><a href="./Week1/TicTacToe/index.html">Tic Tac Toe</a></li>
-        <li><a href="./Week1/RockPaperScissor/index.html">Rock Paper Scissors</a></li>
-        <li><a href="./Week1/ExpenseTracker/index.html">Expense Tracker</a></li>
-        <li><a href="./Week1/CountDown/index.html">Count Down Timer</a></li>
-        <li><a href="./Week1/To-Do-App/index.html">To-Do App</a></li>
-        <li><a href="./Week1/JobApplication/index.html">Job Application Form</a></li>
-        <!-- Add links to other projects as needed -->
-    </ul>
+<body class="bg-gradient-to-r from-purple-500 to-blue-500 text-white min-h-screen">
+    <div class="container mx-auto px-4 py-10">
+        <h1 class="text-5xl font-extrabold mb-8 text-center drop-shadow-lg">My Web Projects</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Amazon Clone -->
+            <div class="card">
+                <img src="./Assets/amazon.avif" alt="Amazon Clone" class="project-image">
+                <div class="project-info">
+                    <h2>Amazon Clone</h2>
+                    <p>A web application mimicking the Amazon interface.</p>
+                </div>
+                <a href="./Week1/AmazonClone/index.html" class="view-button">View Project</a>
+            </div>
+
+            <!-- Tic Tac Toe -->
+            <div class="card">
+                <img src="./Assets/tictactoe.avif" alt="Tic Tac Toe" class="project-image">
+                <div class="project-info">
+                    <h2>Tic Tac Toe</h2>
+                    <p>Classic game of Tic Tac Toe.</p>
+                </div>
+                <a href="./Week1/TicTacToe/index.html" class="view-button">View Project</a>
+            </div>
+
+            <!-- Rock Paper Scissors -->
+            <div class="card">
+                <img src="./Assets/rockpaperscissor.avif" alt="Rock Paper Scissors" class="project-image">
+                <div class="project-info">
+                    <h2>Rock Paper Scissors</h2>
+                    <p>Play Rock Paper Scissors against the computer.</p>
+                </div>
+                <a href="./Week1/RockPaperScissor/index.html" class="view-button">View Project</a>
+            </div>
+
+            <!-- Expense Tracker -->
+            <div class="card">
+                <img src="./Assets/expensetracker.avif" alt="Expense Tracker" class="project-image">
+                <div class="project-info">
+                    <h2>Expense Tracker</h2>
+                    <p>Manage your expenses easily.</p>
+                </div>
+                <a href="./Week1/ExpenseTracker/index.html" class="view-button">View Project</a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="card">
+                <img src="./Assets/countdowntimer.avif" alt="Countdown Timer" class="project-image">
+                <div class="project-info">
+                    <h2>Countdown Timer</h2>
+                    <p>A simple countdown timer for your tasks.</p>
+                </div>
+                <a href="./Week1/CountDown/index.html" class="view-button">View Project</a>
+            </div>
+
+            <!-- To-Do App -->
+            <div class="card">
+                <img src="./Assets/todoapp.avif" alt="To-Do App" class="project-image">
+                <div class="project-info">
+                    <h2>To-Do App</h2>
+                    <p>Keep track of your tasks efficiently.</p>
+                </div>
+                <a href="./Week1/To-Do-App/index.html" class="view-button">View Project</a>
+            </div>
+
+            <!-- Job Application Form -->
+            <div class="card">
+                <img src="./Assets/jobapplication.avif" alt="Job Application Form" class="project-image">
+                <div class="project-info">
+                    <h2>Job Application Form</h2>
+                    <p>Submit your job applications easily.</p>
+                </div>
+                <a href="./Week1/JobApplication/index.html" class="view-button">View Project</a>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

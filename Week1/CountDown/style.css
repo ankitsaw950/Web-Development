@@ -9,50 +9,63 @@ body {
   color: white;
 }
 
-.Countdown-container {
+.countdown-container {
   text-align: center;
   border: 2px solid #61dafb;
   border-radius: 10px;
-  padding: 20px;
+  padding: 30px;
   background-color: #20232a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .countdown-timer {
   font-size: 3em;
-  margin-bottom: 10px;
+  margin: 20px 0;
 }
 
 .countdown-label {
   font-size: 1.5rem;
   color: #61dafb;
+  margin-bottom: 15px;
 }
 
-/* body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #4a5772;
-    color: white;
-  }
-  
-  .Countdown-container {
-    text-align: center;
-    border: 2px solid #61dafb;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #20232a;
-  }
-  
-  .countdown-timer {
-    font-size: 3em;
-    margin-bottom: 10px;
-  }
-  
-  .countdown-label {
-    font-size: 1.5em;
-    color: #61dafb;
-  } */
-  
+.timer-controls {
+  margin-bottom: 20px;
+}
+
+.timer-controls button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #61dafb;
+  color: #20232a;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.timer-controls button:hover {
+  background-color: #21a1f1;
+}
+
+.gap {
+  margin: 30px 0;
+  border-top: 1px solid #61dafb;
+}
+
+#timerInput {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #61dafb;
+  border-radius: 5px;
+  background-color: #282c34;
+  color: white;
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+#timerInput:focus {
+  outline: none;
+  box-shadow: 0 0 5px #61dafb;
+}
